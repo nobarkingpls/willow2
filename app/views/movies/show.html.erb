@@ -3,6 +3,8 @@
 
 <%= render @movie %>
 
+<p>Rights --></p>
+
 <% @movie.rights.each do |right| %>
       <p>
         <strong>Country:</strong>
@@ -18,7 +20,9 @@
         <strong>Finish:</strong>
         <%= right.finish %>
       </p>
-    <% end %> 
+    <% end %>
+
+<p>Genres --></p>
   
 <% @movie.categories.each do |category| %>
       

@@ -3,4 +3,5 @@ class Right < ApplicationRecord
   belongs_to :country
 
   validates_uniqueness_of :movie_id, scope: :country_id
+  validates :country_id, :start, :finish, presence: true
 end
