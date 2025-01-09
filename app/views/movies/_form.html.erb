@@ -42,7 +42,20 @@
       <%= rights_form.checkbox :_destroy %>
     </div>
 
-    <% end %>
+  <% end %>
+
+  <%= form.fields_for :categories do |categories_form| %>
+
+    <div>
+      <%= categories_form.label :genre_id, style: "display: block" %>
+      <%= categories_form.text_field :genre_id  %>
+    </div>
+
+    <div>
+      <%= categories_form.checkbox :_destroy %>
+    </div>
+
+  <% end %>
 
   <div>
     <%= form.submit %>

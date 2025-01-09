@@ -19,6 +19,14 @@
         <%= right.finish %>
       </p>
     <% end %> 
+  
+<% @movie.categories.each do |category| %>
+      
+      <p>
+        <strong>Name:</strong>
+        <%= category.genre.name %>
+      </p>
+    <% end %> 
 
 <div>
   <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
