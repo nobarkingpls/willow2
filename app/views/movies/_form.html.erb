@@ -59,6 +59,34 @@
 
   <% end %>
 
+  <%= form.fields_for :classifications do |classifications_form| %>
+
+    <div>
+      <%= classifications_form.label :rating_id, style: "display: block" %>
+      <%#%= categories_form.text_field :genre_id  %>
+      <%= classifications_form.collection_select :rating_id, Rating.all, :id, :code, include_blank: :true %>
+    </div>
+
+    <div>
+      <%= classifications_form.checkbox :_destroy %>
+    </div>
+
+  <% end %>
+
+  <%= form.fields_for :advisories do |advisories_form| %>
+
+    <div>
+      <%= advisories_form.label :reason_id, style: "display: block" %>
+      <%#%= categories_form.text_field :genre_id  %>
+      <%= advisories_form.collection_select :reason_id, Reason.order(:code), :id, :code, include_blank: :true %>
+    </div>
+
+    <div>
+      <%= advisories_form.checkbox :_destroy %>
+    </div>
+
+  <% end %>
+
   <div>
     <%= form.submit %>
   </div>

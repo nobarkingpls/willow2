@@ -20,17 +20,34 @@
         <strong>Finish:</strong>
         <%= right.finish %>
       </p>
-    <% end %>
+<% end %>
 
 <p>Genres --></p>
   
 <% @movie.categories.each do |category| %>
-      
       <p>
         <strong>Name:</strong>
         <%= category.genre.name %>
       </p>
-    <% end %> 
+<% end %>
+
+<p>Ratings --></p>
+
+<% @movie.classifications.each do |classification| %>
+      <p>
+        <strong>Name:</strong>
+        <%= classification.rating.code %>
+      </p>
+<% end %>
+
+<p>Advisories --></p>
+
+<% @movie.advisories.each do |advisory| %>
+      <p>
+        <strong>Name:</strong>
+        <%= advisory.reason.code %>
+      </p>
+<% end %>
 
 <div>
   <%= link_to "Edit this movie", edit_movie_path(@movie) %> |

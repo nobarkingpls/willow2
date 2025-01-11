@@ -15,12 +15,15 @@ class MoviesController < ApplicationController
     @movie = Movie.new
     1.times { @movie.rights.build }
     1.times { @movie.categories.build }
+    1.times { @movie.classifications.build }
+    1.times { @movie.advisories.build }
   end
 
   # GET /movies/1/edit
   def edit
     1.times { @movie.rights.build }
     1.times { @movie.categories.build }
+    1.times { @movie.advisories.build }
   end
 
   # POST /movies or /movies.json
@@ -69,6 +72,6 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.expect(movie: [ :title, :year, rights_attributes: [ [ :id, :country_id, :start, :finish, :_destroy ] ], categories_attributes: [ [ :id, :genre_id, :_destroy ] ] ])
+      params.expect(movie: [ :title, :year, rights_attributes: [ [ :id, :country_id, :start, :finish, :_destroy ] ], categories_attributes: [ [ :id, :genre_id, :_destroy ] ], classifications_attributes: [ [ :id, :rating_id, :_destroy ] ], advisories_attributes: [ [ :id, :reason_id, :_destroy ] ] ])
     end
 end
