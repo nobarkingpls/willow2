@@ -49,6 +49,15 @@
       </p>
 <% end %>
 
+<p>Actors --></p>
+
+<% @movie.casts.each do |cast| %>
+      <p>
+        <strong>Name:</strong>
+        <%= cast.actor.name %>
+      </p>
+<% end %>
+
 <div>
   <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
   <%= link_to "Back to movies", movies_path %>

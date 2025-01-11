@@ -10,4 +10,7 @@ class Movie < ApplicationRecord
 
   has_many :advisories
   accepts_nested_attributes_for :advisories, allow_destroy: true, reject_if: :all_blank
+
+  has_many :casts, dependent: :destroy
+  accepts_nested_attributes_for :casts, allow_destroy: true, reject_if: :all_blank
 end

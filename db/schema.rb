@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_09_234435) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_11_175612) do
+  create_table "actors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "advisories", force: :cascade do |t|
     t.integer "movie_id"
     t.integer "reason_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "casts", force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "actor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
