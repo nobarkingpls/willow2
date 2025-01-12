@@ -24,9 +24,9 @@
   <%= form.fields_for :rights do |rights_form| %>
 
     <div>
-      <%= rights_form.label :country_id, style: "display: block" %>
+      <%= rights_form.label :country_code, style: "display: block" %>
       <%#%= rights_form.text_field :country_id  %>
-      <%= rights_form.collection_select :country_id, Country.order(:code), :id, :code, include_blank: :true %>
+      <%= rights_form.collection_select :country_code, Country.all, :code, :code, include_blank: :true %>
     </div>
 
     <div>
@@ -48,9 +48,9 @@
   <%= form.fields_for :categories do |categories_form| %>
 
     <div>
-      <%= categories_form.label :genre_id, style: "display: block" %>
+      <%= categories_form.label :genre_name, style: "display: block" %>
       <%#%= categories_form.text_field :genre_id  %>
-      <%= categories_form.collection_select :genre_id, Genre.order(:name), :id, :name, include_blank: :true %>
+      <%= categories_form.collection_select :genre_name, Genre.all, :name, :name, include_blank: :true %>
     </div>
 
     <div>
@@ -62,8 +62,8 @@
   <%= form.fields_for :classifications do |classifications_form| %>
 
     <div>
-      <%= classifications_form.label :rating_id, style: "display: block" %>
-      <%= classifications_form.collection_select :rating_id, Rating.all, :id, :code, include_blank: :true %>
+      <%= classifications_form.label :rating_code, style: "display: block" %>
+      <%= classifications_form.collection_select :rating_code, Rating.all, :code, :code, include_blank: :true %>
     </div>
 
     <div>
@@ -75,8 +75,8 @@
   <%= form.fields_for :advisories do |advisories_form| %>
 
     <div>
-      <%= advisories_form.label :reason_id, style: "display: block" %>
-      <%= advisories_form.collection_select :reason_id, Reason.order(:code), :id, :code, include_blank: :true %>
+      <%= advisories_form.label :reason_code, style: "display: block" %>
+      <%= advisories_form.collection_select :reason_code, Reason.all, :code, :code, include_blank: :true %>
     </div>
 
     <div>
@@ -98,8 +98,6 @@
     </div>
 
   <% end %>
-
-  <%#%= f.text_field :player_name %>
 
   <div>
     <%= form.submit %>
