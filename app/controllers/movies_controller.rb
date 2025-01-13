@@ -37,6 +37,10 @@ class MoviesController < ApplicationController
         format.html { redirect_to @movie, notice: "Movie was successfully created." }
         format.json { render :show, status: :created, location: @movie }
       else
+        1.times { @movie.rights.build }
+        1.times { @movie.categories.build }
+        1.times { @movie.advisories.build }
+        1.times { @movie.casts.build }
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
